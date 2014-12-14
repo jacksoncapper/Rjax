@@ -1,4 +1,4 @@
-<h1>rjax</h1>
+<h1>Rjax</h1>
 
 <p>Useful ajax wrapper designed for REST calls</p>
 
