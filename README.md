@@ -4,7 +4,7 @@
 
 <h3>Setup</h3>
 <p>Simply include Rjax into your head tag</p>
-<pre>&lt;script src='/path/rjax1.0.js'&gt;&lt;/script&gt;</pre>
+<pre>&lt;script src='/path/rjax.js'&gt;&lt;/script&gt;</pre>
 
 <h3>Sending a request</h3>
 <p>Sending a request is simple:</p>
@@ -72,4 +72,4 @@ The respond handler offers some variables for use:
 
 <h3>License</h3>
 <p>Copyright © 2014 - Jackson Capper<br/><a href='https://github.com/jacksoncapper' target='_blank'>https://github.com/jacksoncapper</a></p>
-<p>Permission is granted to any person obtaining a copy of this software including the rights to use, copy, and modify subject to that this license is included in all copies or substantial portions of the software. This software is provided without warranty of any kind. The author or copyright holder cannot be liable for any damages arising from the use of this software.</p>
+<p>Permission is granted to any person obtaining a copy of this software the rights to use, copy, and modify subject to that this license is included in all copies or substantial portions of the software. This software is provided without warranty of any kind. The author or copyright holder cannot be liable for any damages arising from the use of this software.</p>
