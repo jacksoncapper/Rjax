@@ -9,20 +9,24 @@
 <h3>Sending a request</h3>
 <p>Sending a request is simple:</p>
 <pre>
-  Rjax.send("GET", "http://myrestapi", null, function(response){
+  Rjax.send("GET", "http://myrestapi", null, null, function(response){
     // Response handler
   });
 </pre>
 <p><code>send</code> returns a handle to the request.</p>
 
-<h5>POST</h5>
-<p>POST data can be provided as an object or as a string:</p>
+<h5>POST &amp; headers</h5>
+<p>POST and headers data can be provided as objects:</p>
 <pre>
   Rjax.send("POST", "http://myrestapi", {
-    "arg1": "value1",
-    "arg2": "value2",
+    "post1": "value1",
+    "post2": "value2",
+  }, {
+    "header1": "value1",
+    "header2": "value2"
   });
 </pre>
+<p>POST can also be provided as a raw string. Use <code>JSON.stringify()</code> to post a JSON string.</p>
 
 <h5>Options</h5>
 <p>Extra options can be provided:</p>
