@@ -1,12 +1,11 @@
 /*
 Copyright © 2014 - Jackson Capper
 https://github.com/jacksoncapper/rjax
-Permission is granted to any person obtaining a copy of this software
-including the rights to use, copy, and modify subject to that this
-license is included in all copies or substantial portions of the
-software. This software is provided without warranty of any kind. The
-author or copyright holder cannot be liable for any damages arising
-from the use of this software.
+
+Permission is granted to any person obtaining a copy of this software including the rights to
+use, copy, and modify subject to that this license is included in all copies or substantial
+portions of the software. This software is provided without warranty of any kind. The author or
+copyright holder cannot be liable for any damages arising from the use of this software.
 */
 
 var Rjax = {};
