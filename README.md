@@ -31,12 +31,7 @@
 <h5>Options</h5>
 <p>Extra options can be provided:</p>
 <pre>
-  Rjax.send("POST", "http://myrestapi", {
-    "arg1": "value1",
-    "arg2": "value2",
-  }, function(){
-    // Response handler
-  }, {
+  Rjax.send("POST", "http://myrestapi", null, null, null, {
     "timeout": timeout, // A timeout is milliseconds before the request is cancelled
     "reference": object // A custom reference to be passed to the response handler
   });
@@ -53,7 +48,7 @@ The respond handler offers some variables for use:
     // Do stuff here
   }
   
-  Rjax.send("POST", "http://myrestapi", null, responseHandler);
+  Rjax.send("POST", "http://myrestapi", null, null, responseHandler);
 </pre>
 <p>The body returned is a type sensitive to the <code>Content-type</code> of the response:</p>
 <ul>
