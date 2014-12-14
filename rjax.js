@@ -1,5 +1,3 @@
-/* Rjax 1.0.1 ~ Copyright © 2014 Jackson Capper ~ https://github.com/jacksoncapper */
-
 var Rjax = {};
 Rjax._threads = [];
 
