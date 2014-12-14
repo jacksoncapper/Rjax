@@ -70,3 +70,7 @@ The respond handler offers some variables for use:
 <h3>Cancel a request</h3>
 <p>Cancelling a request is simple. Use the handle return from the <code>send</code> function:</p>
 <code>Rjax.cancel(handle);</code>
+
+<h3>License</h3>
+<p>Copyright © 2014 - Jackson Capper</p>
+<p>Permission is granted to any person obtaining a copy of this software including the rights to use, copy, and modify subject to that this license is included in all copies or substantial portions of the software. This software is provided without warranty of any kind. The author or copyright holder cannot be liable for any damages arising from the use of this software.</p>
