@@ -1,6 +1,6 @@
 /*
 Copyright © 2014 - Jackson Capper
-https://github.com/jacksoncapper/rjax
+https://github.com/jacksoncapper
 
 Permission is granted to any person obtaining a copy of this software including the rights to
 use, copy, and modify subject to that this license is included in all copies or substantial
