@@ -19,11 +19,11 @@
 <p>POST and headers data can be provided as objects:</p>
 <pre>
   Rjax.send("POST", "http://myrestapi", {
-    "post1": "value1",
-    "post2": "value2",
-  }, {
     "header1": "value1",
     "header2": "value2"
+  }, {
+    "post1": "value1",
+    "post2": "value2",
   });
 </pre>
 <p>POST can also be provided as a raw string. Use <code>JSON.stringify()</code> to post a JSON string.</p>
