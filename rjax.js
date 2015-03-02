@@ -131,9 +131,10 @@ Rjax.send = function(method, url, headers, body, response, options){
 			body = form;
 		}
 		else{
-			var body = "";
+			var form = "";
 			for(var postName in body)
-				body += (body != "" ? "&" : "") + encodeURIComponent(postName) + "=" + encodeURIComponent(body[postName]);
+				form += (form != "" ? "&" : "") + encodeURIComponent(postName) + "=" + encodeURIComponent(body[postName]);
+			body = form;
 		}
 	
 	if(options.timeout != null)
