@@ -200,7 +200,8 @@ Rjax.send = function(method, url, headers, body, response, options){
 };
 
 Rjax.cancel = function(ajax){
-	clearTimeout(ajax.timeoutX);
+	if(ajax.timeoutX != null)
+		clearTimeout(ajax.timeoutX);
 	ajax.abort();
 };
 
