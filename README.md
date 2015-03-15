@@ -1,4 +1,4 @@
-<h1>Rjax 1.0.3</h1>
+<h1>Rjax 1.1.0</h1>
 
 <p>Useful ajax wrapper designed for REST calls</p>
 
