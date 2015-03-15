@@ -1,3 +1,6 @@
+/* Array.indexOf Polyfill */
+if(!Array.prototype.indexOf){Array.prototype.indexOf=function(elt){var len=this.length>>>0;var from=Number(arguments[1])||0;from=(from<0)?Math.ceil(from):Math.floor(from);if(from<0)from+=len;for(;from<len;from++){if(from in this&&this[from]===elt)return from}return-1}}
+
 var Rjax = {};
 Rjax._threads = [];
 
@@ -108,13 +111,7 @@ Rjax.send = function(method, url, headers, body, response, options){
 	if(url.indexOf("http://") < 0 && url.indexOf("https://") < 0)
 		url = "http://" + url;
 	
-	if(XMLHttpRequest !== undefined)
-		var ajax = new XMLHttpRequest();
-	else if(extractDomain(url) == extractDomain(location.href))
-		var ajax = new XDomainRequest();
-	else
-		var ajax = new ActiveXObject("Microsoft.XMLHTTP");
-
+	var ajax = extractDomain(url) == extractDomain(location.href) ? new XMLHttpRequest() : (document.addEventListener ? new XMLHttpRequest() : new XDomainRequest());
 	ajax.open(method, url, true);
 	
 	if(headers != null)
@@ -122,8 +119,8 @@ Rjax.send = function(method, url, headers, body, response, options){
 			ajax.setRequestHeader(headerName, headers[headerName]);
 	
 	if(typeof(body) == "string")
-		var body = body;
-	else if(typeof(body) == "object")
+		body = body;
+	else if(typeof(body) == "object"){
 		if(window.FormData !== undefined){
 			var form = new FormData();
 			for(var name in body)
@@ -131,18 +128,23 @@ Rjax.send = function(method, url, headers, body, response, options){
 			body = form;
 		}
 		else{
+			ajax.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 			var form = "";
 			for(var postName in body)
 				form += (form != "" ? "&" : "") + encodeURIComponent(postName) + "=" + encodeURIComponent(body[postName]);
 			body = form;
 		}
+	}
+	else
+		body = null;
 	
-	if(options.timeout != null)
-		ajax.timeoutX = setTimeout(function(){
-			Rjax.cancel(ajax);
+	if(options.timeout != null){
+		ajax.timeout = options.timeout;
+		ajax.ontimeout = function(){
 			if(response != null)
 				response(null, "timeout", null);
-		}, options.timeout);
+		};
+	}
 	
 	ajax.onreadystatechange = function(){
 		if(ajax.readyState != 4 && ajax.readyState != "complete")
@@ -186,16 +188,9 @@ Rjax.send = function(method, url, headers, body, response, options){
 			response(body, code, headers, options);
 		}
 	};
-	if(XMLHttpRequest === undefined && ajax instanceof XDomainRequest){
-		ajax.onload = ajax.onreadystatechange;
-		ajax.onreadystatechange = null;
-		delete ajax.onreadystatechange;
-	}
-
 	ajax.send(body);
 
 	Rjax._threads[Rjax._threads.length] = ajax;
-	
 	return ajax;
 };
 
