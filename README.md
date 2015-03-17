@@ -1,4 +1,4 @@
-<h1>Rjax 1.1.0</h1>
+<h1>Rjax 1.2.0</h1>
 
 <p>Useful ajax wrapper designed for REST calls</p>
 
@@ -33,7 +33,8 @@
 <pre>
   Rjax.send("POST", "http://myrestapi", null, null, null, {
     "timeout": timeout, // A timeout is milliseconds before the request is cancelled
-    "reference": object // A custom reference to be passed to the response handler
+    "reference": object, // A custom reference to be passed to the response handler
+    "async": true // The request should be sent asynchronously
   });
 </pre>
 <p>All options are <code>null</code> by default. You can set the default options globally after Rjax is included:</p>
