@@ -92,7 +92,8 @@ Rjax.unbase64 = function(data){
 
 Rjax.defaultOptions = {
 	reference: null,
-	timeout: null
+	timeout: null,
+	async: true
 };
 
 Rjax.send = function(method, url, headers, body, response, options){
@@ -112,7 +113,7 @@ Rjax.send = function(method, url, headers, body, response, options){
 		url = "http://" + url;
 	
 	var ajax = extractDomain(url) == extractDomain(location.href) ? new XMLHttpRequest() : (document.addEventListener ? new XMLHttpRequest() : new XDomainRequest());
-	ajax.open(method, url, true);
+	ajax.open(method, url, options.async);
 	
 	if(headers != null)
 		for(var headerName in headers)
