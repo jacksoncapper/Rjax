@@ -104,13 +104,13 @@ Rjax.send = function(method, url, headers, body, response, options){
 		options[name] = options[name] != null ? options[name] : Rjax.defaultOptions[name];
 	
 	if(url === null)
-		url = location.href
+		url = location.href;
 	else if(url[0] == "?")
 		url = location.href + url;
 	else if(url[0] == "/")
 		url = extractDomain(location.href) + url;
 	if(url.indexOf("http://") < 0 && url.indexOf("https://") < 0)
-		url = "http://" + url;
+		url = (location.href.indexOf("https://") < 0 ? "http://" : "https://") + url;
 	
 	var ajax = extractDomain(url) == extractDomain(location.href) ? new XMLHttpRequest() : (document.addEventListener ? new XMLHttpRequest() : new XDomainRequest());
 	ajax.open(method, url, options.async);
